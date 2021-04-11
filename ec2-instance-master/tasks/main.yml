@@ -1,0 +1,17 @@
+---
+# tasks file for ec2-instance
+
+- name: provisioning ec2 instance
+  ec2:
+    instance_tags:
+       Name: "{{ instance_tag }}"
+    region: "{{ region }}"
+    image: "{{ image_id }}"
+    instance_type: "{{ instance_type }}"
+    vpc_subnet_id: "{{ vpc_subnet_id }}"
+    group_id: "{{ security_group }}"
+    key_name: "{{ key_name }}"
+    count: "{{ count }}"
+    state: present
+    aws_access_key: "{{ access_key }}"
+    aws_secret_key: "{{ secret_key }}"

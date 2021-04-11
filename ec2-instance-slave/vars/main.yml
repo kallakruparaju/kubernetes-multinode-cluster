@@ -1,0 +1,13 @@
+---
+# vars file for ec2-instance
+
+region: ""
+image_id: ""
+instance_type: ""
+vpc_subnet_id: ""
+security_group: ""
+key_name: ""
+instance_tag: "kubernetes_slave"
+count: ""
+access_key: ""
+secret_key: ""

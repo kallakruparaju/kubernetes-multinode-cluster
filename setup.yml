@@ -1,0 +1,26 @@
+- hosts: localhost
+  roles:
+  - name: "Launching ec2 instance for master"
+    role: ec2-instance-master
+  - name: "Launching ec2 instance for slave"
+    role: ec2-instance-slave
+    
+  tasks:
+  - name: Wait to Completely Provision Instances
+    pause:
+      minutes: 2
+  - name: Refresh Inventory
+    meta: refresh_inventory   
+
+- hosts: tag_Name_kubernetes_master 
+  roles:
+  - name: "configuring Master node"
+    role: kubernetes-master
+
+- hosts: tag_Name_kubernetes_slave 
+  vars_prompt:
+  - name: "token"
+    prompt: "Enter token to join with master: "
+  roles:
+  - name: "configuring Slave node"
+    role: kubernetes-slave
