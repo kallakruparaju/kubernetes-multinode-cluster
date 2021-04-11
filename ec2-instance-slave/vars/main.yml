@@ -1,9 +1,9 @@
 ---
 # vars file for ec2-instance
 
-region: ""
-image_id: ""
-instance_type: ""
+region: "ap-south-1"
+image_id: "ami-0bcf5425cdc1d8a85"
+instance_type: "t2.micro"
 vpc_subnet_id: ""
 security_group: ""
 key_name: ""
